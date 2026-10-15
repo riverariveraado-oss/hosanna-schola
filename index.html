@@ -569,7 +569,19 @@
     }
   </style>
 </head>
-
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/hosanna-schola/sw.js")
+        .then((registro) => {
+          console.log("Hosanna PWA registrada:", registro.scope);
+        })
+        .catch((error) => {
+          console.error("Error al registrar Hosanna PWA:", error);
+        });
+    });
+  }
+</script>
 <body>
 
   <!-- ENCABEZADO -->
