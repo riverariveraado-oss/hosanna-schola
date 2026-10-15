@@ -328,10 +328,18 @@
     /* APLICACIÓN */
 
     #zonaAplicacion {
-      display: none;
-      padding: 20px;
-      background: #e8edf1;
-    }
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #ffffff;
+  z-index: 9999;
+}
 
     .aplicacion-barra {
       display: flex;
@@ -356,24 +364,26 @@
     }
 
     #aplicacion {
-      display: block;
-      width: 100%;
-      max-width: 1400px;
-      height: 78vh;
-      min-height: 600px;
-      margin: 0 auto;
-      border: none;
-      border-radius: 12px;
-      background: var(--blanco);
-      box-shadow: var(--sombra);
-    }
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+}
 
     #mensajeCarga {
-      display: none;
-      padding: 18px;
-      color: var(--azul-profundo);
-      text-align: center;
-    }
+  display: none;
+  padding: 18px;
+  color: var(--azul-profundo);
+  text-align: center;
+}
 
     /* PIE DE PÁGINA */
 
@@ -598,7 +608,7 @@
 
         <!-- Aquí colocaremos la ilustración de la mascota -->
         <img
-          src="https://i.ibb.co/60MCbL22/hosanna-solo.png"
+          src="https://i.ibb.co/ynWCn4WB/Gemini-Generated-Image-bzzscbzzscbzzscb-removebg-preview.png"
           alt="Hosanna Schola"
         >
 
@@ -681,30 +691,22 @@
   </main>
 
 
-  <!-- CONTENEDOR DE LA APLICACIÓN -->
-  <section id="zonaAplicacion">
+<!-- APLICACIÓN A PANTALLA COMPLETA -->
+<section id="zonaAplicacion">
 
-    <div class="aplicacion-barra">
-      <strong>Hosanna Schola</strong>
+  <div id="mensajeCarga">
+    Cargando Hosanna Schola...
+  </div>
 
-      <button class="boton-regresar" onclick="volverInicio()">
-        Volver a bienvenida
-      </button>
-    </div>
+  <iframe
+    id="aplicacion"
+    title="Aplicación Hosanna Schola"
+    allow="autoplay"
+    allowfullscreen
+    loading="eager"
+  ></iframe>
 
-    <div id="mensajeCarga">
-      Cargando Hosanna Schola...
-    </div>
-
-    <iframe
-      id="aplicacion"
-      title="Aplicación Hosanna Schola"
-      allow="autoplay"
-      allowfullscreen
-      loading="eager"
-    ></iframe>
-
-  </section>
+</section>
 
 
   <!-- PIE DE PÁGINA -->
