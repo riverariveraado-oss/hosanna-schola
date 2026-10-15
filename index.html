@@ -1,131 +1,805 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="theme-color" content="#173b35">
-  <meta name="description" content="Hosanna Schola: una comunidad que sirve a través de la música.">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-  <title>Hosanna Schola</title>
+  <meta name="theme-color" content="#10243b">
+
+  <meta name="description"
+        content="Hosanna Schola. Tu compañero digital para organizar, preparar y vivir la música que nos une.">
+
+  <title>Hosanna Schola | Disruptivos para trascender</title>
 
   <style>
+    :root {
+      --azul-marino: #10243b;
+      --azul-profundo: #173b61;
+      --azul: #4389b5;
+      --azul-claro: #91cce5;
+      --dorado: #d8a94f;
+      --crema: #faf8f1;
+      --blanco: #ffffff;
+      --texto: #25384c;
+      --sombra: 0 18px 50px rgba(16, 36, 59, 0.13);
+    }
+
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f3ed;
-      color: #243b35;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--texto);
+      background: var(--crema);
     }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* ENCABEZADO */
 
     header {
-      padding: 22px;
-      text-align: center;
-      background: #173b35;
-      color: white;
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 18px 7%;
+      background: var(--azul-marino);
+      color: var(--blanco);
+      border-bottom: 2px solid rgba(216, 169, 79, 0.7);
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 28px;
+    .marca {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
     }
 
-    header p {
-      margin-bottom: 0;
-      color: #e5e8df;
+    .marca img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
     }
 
-    main {
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 24px;
-      text-align: center;
+    .marca-texto {
+      display: flex;
+      flex-direction: column;
     }
 
-    .boton {
+    .marca-texto strong {
+      font-family: Georgia, serif;
+      font-size: 25px;
+      font-weight: normal;
+      letter-spacing: 0.3px;
+    }
+
+    .marca-texto span {
+      color: var(--dorado);
+      font-size: 11px;
+      letter-spacing: 5px;
+    }
+
+    .boton-acceso {
+      padding: 12px 22px;
+      border: 1px solid var(--dorado);
+      border-radius: 30px;
+      background: var(--dorado);
+      color: var(--azul-marino);
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .boton-acceso:hover {
+      background: #edc46f;
+      transform: translateY(-2px);
+    }
+
+    /* BIENVENIDA */
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 35px;
+      min-height: 590px;
+      padding: 65px 8%;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 75% 30%,
+          rgba(67, 137, 181, 0.28),
+          transparent 35%
+        ),
+        linear-gradient(
+          120deg,
+          #10243b 0%,
+          #173b61 65%,
+          #10243b 100%
+        );
+      color: var(--blanco);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      right: 5%;
+      top: 10%;
+      border: 1px solid rgba(216, 169, 79, 0.25);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-contenido {
+      position: relative;
+      z-index: 2;
+      max-width: 570px;
+    }
+
+    .etiqueta {
       display: inline-block;
-      margin-top: 20px;
-      padding: 14px 28px;
-      border: none;
-      border-radius: 8px;
-      background: #b18b48;
-      color: white;
+      padding: 8px 15px;
+      border: 1px solid rgba(216, 169, 79, 0.6);
+      border-radius: 30px;
+      color: #f0cb7a;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 25px 0 20px;
+      font-family: Georgia, serif;
+      font-size: clamp(38px, 5vw, 64px);
+      font-weight: normal;
+      line-height: 1.1;
+    }
+
+    .hero h1 span {
+      color: var(--dorado);
+    }
+
+    .hero p {
+      max-width: 480px;
+      color: #dce7f0;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .hero-frase {
+      margin-top: 24px;
+      color: #f0cb7a !important;
+      font-weight: 600;
+      font-size: 20px !important;
+    }
+
+    .hero-imagen {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .hero-imagen img {
+      display: block;
+      width: 100%;
+      max-width: 480px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.25));
+    }
+
+    /* PROPUESTA DE VALOR */
+
+    .seccion {
+      padding: 75px 8%;
+    }
+
+    .seccion-encabezado {
+      max-width: 700px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .seccion-encabezado h2 {
+      margin: 0 0 15px;
+      color: var(--azul-marino);
+      font-family: Georgia, serif;
+      font-size: clamp(29px, 4vw, 42px);
+      font-weight: normal;
+    }
+
+    .seccion-encabezado p {
+      margin: 0;
+      color: #647385;
       font-size: 16px;
-      font-weight: bold;
+      line-height: 1.8;
+    }
+
+    .habilidades {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .habilidad {
+      padding: 28px 20px;
+      border: 1px solid #e9e5da;
+      border-radius: 18px;
+      background: var(--blanco);
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(16, 36, 59, 0.04);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .habilidad:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--sombra);
+    }
+
+    .habilidad-icono {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 62px;
+      height: 62px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: var(--azul-marino);
+      color: var(--dorado);
+      font-size: 27px;
+    }
+
+    .habilidad h3 {
+      margin: 0 0 12px;
+      color: var(--azul-profundo);
+      font-size: 17px;
+    }
+
+    .habilidad p {
+      margin: 0;
+      color: #647385;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* LLAMADO A LA ACCIÓN */
+
+    .invitacion {
+      padding: 65px 8%;
+      background: #eaf2f6;
+      text-align: center;
+    }
+
+    .invitacion h2 {
+      margin: 0 0 15px;
+      color: var(--azul-marino);
+      font-family: Georgia, serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: normal;
+    }
+
+    .invitacion p {
+      margin: 0 auto 25px;
+      max-width: 600px;
+      color: #526679;
+      line-height: 1.8;
+    }
+
+    .boton-principal {
+      padding: 16px 30px;
+      border: none;
+      border-radius: 35px;
+      background: var(--dorado);
+      color: var(--azul-marino);
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(216, 169, 79, 0.25);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .boton-principal:hover {
+      background: #edc46f;
+      transform: translateY(-2px);
+    }
+
+    /* APLICACIÓN */
+
+    #zonaAplicacion {
+      display: none;
+      padding: 20px;
+      background: #e8edf1;
+    }
+
+    .aplicacion-barra {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      max-width: 1400px;
+      margin: 0 auto 15px;
+    }
+
+    .aplicacion-barra strong {
+      color: var(--azul-marino);
+    }
+
+    .boton-regresar {
+      padding: 10px 16px;
+      border: 1px solid #cbd5df;
+      border-radius: 20px;
+      background: var(--blanco);
+      color: var(--azul-marino);
       cursor: pointer;
     }
 
-    .boton:hover {
-      background: #927039;
+    #aplicacion {
+      display: block;
+      width: 100%;
+      max-width: 1400px;
+      height: 78vh;
+      min-height: 600px;
+      margin: 0 auto;
+      border: none;
+      border-radius: 12px;
+      background: var(--blanco);
+      box-shadow: var(--sombra);
     }
 
-    #aplicacion {
+    #mensajeCarga {
       display: none;
-      width: 100%;
-      height: 75vh;
-      min-height: 500px;
-      margin-top: 30px;
-      border: none;
-      border-radius: 10px;
-      background: white;
+      padding: 18px;
+      color: var(--azul-profundo);
+      text-align: center;
     }
+
+    /* PIE DE PÁGINA */
 
     footer {
-      padding: 20px;
+      padding: 30px 7%;
+      background: var(--azul-marino);
+      color: #dce7f0;
       text-align: center;
+    }
+
+    footer strong {
+      color: var(--dorado);
+    }
+
+    footer p {
+      margin: 8px 0 0;
       font-size: 13px;
-      color: #66746e;
+    }
+
+    /* TABLET */
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr 0.8fr;
+        padding: 55px 6%;
+      }
+
+      .hero-imagen img {
+        max-width: 360px;
+      }
+
+      .habilidades {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .seccion {
+        padding: 60px 6%;
+      }
+    }
+
+    /* CELULAR */
+
+    @media (max-width: 600px) {
+      header {
+        padding: 14px 5%;
+        gap: 10px;
+      }
+
+      .marca {
+        gap: 8px;
+      }
+
+      .marca img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .marca-texto strong {
+        font-size: 19px;
+      }
+
+      .marca-texto span {
+        font-size: 9px;
+        letter-spacing: 3px;
+      }
+
+      .boton-acceso {
+        padding: 10px 13px;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 45px 7% 35px;
+        text-align: center;
+      }
+
+      .hero-contenido {
+        margin: auto;
+      }
+
+      .hero h1 {
+        margin-top: 22px;
+        font-size: 39px;
+      }
+
+      .hero p {
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 16px;
+      }
+
+      .hero-frase {
+        font-size: 18px !important;
+      }
+
+      .hero-imagen {
+        grid-row: 1;
+      }
+
+      .hero-imagen img {
+        width: 75%;
+        max-width: 290px;
+        max-height: 300px;
+      }
+
+      .hero::before {
+        width: 270px;
+        height: 270px;
+        top: 2%;
+        right: calc(50% - 135px);
+      }
+
+      .seccion {
+        padding: 50px 5%;
+      }
+
+      .seccion-encabezado {
+        margin-bottom: 30px;
+      }
+
+      .habilidades {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .habilidad {
+        padding: 24px 20px;
+      }
+
+      .invitacion {
+        padding: 50px 6%;
+      }
+
+      #zonaAplicacion {
+        padding: 10px;
+      }
+
+      .aplicacion-barra {
+        align-items: flex-start;
+      }
+
+      #aplicacion {
+        height: 75vh;
+        min-height: 500px;
+        border-radius: 8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Hosanna Schola</h1>
-    <p>La música al servicio de nuestra comunidad</p>
+  <!-- ENCABEZADO -->
+  <header id="encabezado">
+    <div class="marca">
+      <!-- Sustituye esta URL por la de tu logotipo si tienes una versión independiente -->
+      <img
+        src="https://i.ibb.co/1Jh5myPC/Gemini-Generated-Image-an5tnjan5tnjan5t-removebg-preview.png"
+        alt="Logotipo de Hosanna Schola"
+      >
+
+      <div class="marca-texto">
+        <strong>Hosanna</strong>
+        <span>SCHOLA</span>
+      </div>
+    </div>
+
+    <button class="boton-acceso" onclick="abrirHosanna()">
+      Ingresar a Hosanna
+    </button>
   </header>
 
-  <main>
-    <section id="bienvenida">
-      <h2>Bienvenido a Hosanna</h2>
+
+  <!-- BIENVENIDA -->
+  <main id="contenidoPrincipal">
+
+    <section class="hero">
+
+      <div class="hero-contenido">
+
+        <span class="etiqueta">
+          La tecnología al servicio de la música
+        </span>
+
+        <h1>
+          Hola, somos <span>Hosanna</span>.
+        </h1>
+
+        <p>
+          Tu compañero digital para organizar, preparar y vivir
+          la música que nos une.
+        </p>
+
+        <p>
+          Un espacio para preparar nuestro repertorio, coordinar
+          actividades y facilitar el servicio de cada integrante.
+        </p>
+
+        <p class="hero-frase">
+          Disruptivos para trascender.
+        </p>
+
+        <button class="boton-principal" onclick="abrirHosanna()">
+          Entrar a mi espacio musical
+        </button>
+
+      </div>
+
+      <div class="hero-imagen">
+
+        <!-- Aquí colocaremos la ilustración de la mascota -->
+        <img
+          src="https://i.ibb.co/1Jh5myPC/Gemini-Generated-Image-an5tnjan5tnjan5t-removebg-preview.png"
+          alt="Hosanna Schola"
+        >
+
+      </div>
+
+    </section>
+
+
+    <!-- HABILIDADES -->
+    <section class="seccion">
+
+      <div class="seccion-encabezado">
+        <h2>Todo lo que nos une, en un solo lugar</h2>
+
+        <p>
+          Menos tiempo organizando tareas. Más tiempo para preparar
+          la música y compartir nuestro servicio con la comunidad.
+        </p>
+      </div>
+
+      <div class="habilidades">
+
+        <article class="habilidad">
+          <div class="habilidad-icono" aria-hidden="true">♫</div>
+          <h3>Nuestro repertorio</h3>
+          <p>
+            Organiza canciones, letras y recursos para preparar
+            cada celebración.
+          </p>
+        </article>
+
+        <article class="habilidad">
+          <div class="habilidad-icono" aria-hidden="true">▦</div>
+          <h3>Ensayos y eventos</h3>
+          <p>
+            Mantente al tanto de las actividades y de los momentos
+            importantes de nuestra comunidad.
+          </p>
+        </article>
+
+        <article class="habilidad">
+          <div class="habilidad-icono" aria-hidden="true">♧</div>
+          <h3>Trabajo en equipo</h3>
+          <p>
+            Facilita la organización y la colaboración entre
+            los integrantes.
+          </p>
+        </article>
+
+        <article class="habilidad">
+          <div class="habilidad-icono" aria-hidden="true">☁</div>
+          <h3>Acceso desde cualquier lugar</h3>
+          <p>
+            Consulta tu espacio musical desde los dispositivos
+            autorizados.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- INVITACIÓN -->
+    <section class="invitacion">
+
+      <h2>La música nos une. Hosanna nos acompaña.</h2>
+
       <p>
-        Un espacio para organizar, preparar y compartir
-        nuestro servicio musical.
+        Entra a tu espacio y prepárate para seguir compartiendo
+        el don de la música con nuestra comunidad.
       </p>
 
-      <button class="boton" onclick="abrirHosanna()">
-        Ingresar a Hosanna
+      <button class="boton-principal" onclick="abrirHosanna()">
+        Ingresar a Hosanna Schola
       </button>
+
     </section>
+
+  </main>
+
+
+  <!-- CONTENEDOR DE LA APLICACIÓN -->
+  <section id="zonaAplicacion">
+
+    <div class="aplicacion-barra">
+      <strong>Hosanna Schola</strong>
+
+      <button class="boton-regresar" onclick="volverInicio()">
+        Volver a bienvenida
+      </button>
+    </div>
+
+    <div id="mensajeCarga">
+      Cargando Hosanna Schola...
+    </div>
 
     <iframe
       id="aplicacion"
       title="Aplicación Hosanna Schola"
       allow="autoplay"
-      allowfullscreen>
-    </iframe>
-  </main>
+      allowfullscreen
+      loading="eager"
+    ></iframe>
 
+  </section>
+
+
+  <!-- PIE DE PÁGINA -->
   <footer>
-    Hosanna Schola · Disruptivos para trascender
+    <strong>Hosanna Schola</strong>
+    <p>La tecnología al servicio de la música y la comunidad.</p>
+    <p>Disruptivos para trascender.</p>
   </footer>
 
+
   <script>
+
+    /*
+     * IMPORTANTE:
+     * Conserva aquí la URL de implementación de tu aplicación
+     * de Google Apps Script.
+     */
+    const URL_HOSANNA =
+      "PEGA_AQUI_TU_URL_DE_IMPLEMENTACION_DE_APPS_SCRIPT";
+
+
     function abrirHosanna() {
-      document.getElementById("bienvenida").style.display = "none";
 
-      const aplicacion = document.getElementById("aplicacion");
+      if (
+        !URL_HOSANNA ||
+        URL_HOSANNA.includes("PEGA_AQUI")
+      ) {
+        alert(
+          "Primero debes configurar la URL de tu aplicación Hosanna."
+        );
+        return;
+      }
 
-      aplicacion.src = "https://script.google.com/macros/s/AKfycbyMakr3dQrsK7Nonl2-RrKqiftZdUEx_LPdQ947avqMnfp4mANfj4ha98PwVLHJ35mYqA/exec";
-      aplicacion.style.display = "block";
+      const principal =
+        document.getElementById("contenidoPrincipal");
+
+      const encabezado =
+        document.getElementById("encabezado");
+
+      const zona =
+        document.getElementById("zonaAplicacion");
+
+      const iframe =
+        document.getElementById("aplicacion");
+
+      const carga =
+        document.getElementById("mensajeCarga");
+
+      principal.style.display = "none";
+      encabezado.style.display = "none";
+      zona.style.display = "block";
+
+      carga.style.display = "block";
+
+      /*
+       * Cargamos la aplicación una sola vez.
+       * Esto evita reiniciar el iframe cada vez que
+       * el usuario regresa a la bienvenida.
+       */
+      if (!iframe.dataset.cargada) {
+
+        iframe.onload = function() {
+          carga.style.display = "none";
+        };
+
+        iframe.src = URL_HOSANNA;
+        iframe.dataset.cargada = "true";
+
+      } else {
+
+        carga.style.display = "none";
+
+      }
+
+      window.scrollTo(0, 0);
+
     }
+
+
+    function volverInicio() {
+
+      document.getElementById("zonaAplicacion").style.display =
+        "none";
+
+      document.getElementById("contenidoPrincipal").style.display =
+        "block";
+
+      document.getElementById("encabezado").style.display =
+        "flex";
+
+      window.scrollTo(0, 0);
+
+    }
+
   </script>
 
 </body>
 </html>
-```
