@@ -139,16 +139,17 @@
     }
 
     .hero::before {
-      content: "";
-      position: absolute;
-      width: 450px;
-      height: 450px;
-      right: 5%;
-      top: 10%;
-      border: 1px solid rgba(216, 169, 79, 0.25);
-      border-radius: 50%;
-      pointer-events: none;
-    }
+  content: "";
+  position: absolute;
+  width: 390px;
+  height: 390px;
+  left: 75%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(216, 169, 79, 0.25);
+  border-radius: 50%;
+  pointer-events: none;
+}
 
     .hero-contenido {
       position: relative;
@@ -494,9 +495,10 @@
 
       .hero::before {
         width: 270px;
-        height: 270px;
-        top: 2%;
-        right: calc(50% - 135px);
+  height: 270px;
+  left: 50%;
+  top: 150px;
+  transform: translate(-50%, -50%);
       }
 
       .seccion {
@@ -521,18 +523,37 @@
       }
 
       #zonaAplicacion {
-        padding: 10px;
-      }
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #ffffff;
+  z-index: 9999;
+}
 
       .aplicacion-barra {
         align-items: flex-start;
       }
 
       #aplicacion {
-        height: 75vh;
-        min-height: 500px;
-        border-radius: 8px;
-      }
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+}
     }
 
     @media (prefers-reduced-motion: reduce) {
