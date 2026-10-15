@@ -728,15 +728,15 @@
 
     function abrirHosanna() {
 
-      if (
-        !URL_HOSANNA ||
-        URL_HOSANNA.includes("https://script.google.com/macros/s/AKfycbyMakr3dQrsK7Nonl2-RrKqiftZdUEx_LPdQ947avqMnfp4mANfj4ha98PwVLHJ35mYqA/exec")
-      ) {
-        alert(
-          "Primero debes configurar la URL de tu aplicación Hosanna."
-        );
-        return;
-      }
+              if (
+          !URL_HOSANNA ||
+          URL_HOSANNA.includes("PEGA_AQUI")
+        ) {
+          alert(
+            "Primero debes configurar la URL de tu aplicación Hosanna."
+          );
+          return;
+        }
 
       const principal =
         document.getElementById("contenidoPrincipal");
