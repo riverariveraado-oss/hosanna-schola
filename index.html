@@ -1,19 +1,15 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#10243b">
+  <meta name="description" content="Hosanna Schola. Tu compañero digital para organizar, preparar y vivir la música que nos une.">
 
-  <meta name="description"
-        content="Hosanna Schola. Tu compañero digital para organizar, preparar y vivir la música que nos une.">
-  
-<link rel="manifest" href="/hosanna-schola/manifest.json">
-<link rel="apple-touch-icon" href="/hosanna-schola/icons/hosanna-192.png">
-  
+  <link rel="manifest" href="/hosanna-schola/manifest.json">
+  <link rel="apple-touch-icon" href="/hosanna-schola/icons/hosanna-192.png">
+
   <title>Hosanna Schola | Disruptivos para trascender</title>
 
   <style>
@@ -51,6 +47,12 @@
 
     button {
       font: inherit;
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--azul-claro);
+      outline-offset: 4px;
     }
 
     /* ENCABEZADO */
@@ -99,6 +101,12 @@
       letter-spacing: 5px;
     }
 
+    .acciones-encabezado {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     .boton-acceso {
       padding: 12px 22px;
       border: 1px solid var(--dorado);
@@ -110,8 +118,28 @@
       transition: transform 0.2s, background 0.2s;
     }
 
-    .boton-acceso:hover {
+    .boton-acceso:hover,
+    .boton-principal:hover {
       background: #edc46f;
+      transform: translateY(-2px);
+    }
+
+    .boton-secundario {
+      display: inline-block;
+      padding: 14px 24px;
+      border: 1px solid var(--dorado);
+      border-radius: 35px;
+      background: transparent;
+      color: var(--blanco);
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    .boton-secundario:hover {
+      background: var(--dorado);
+      color: var(--azul-marino);
       transform: translateY(-2px);
     }
 
@@ -142,17 +170,17 @@
     }
 
     .hero::before {
-  content: "";
-  position: absolute;
-  width: 390px;
-  height: 390px;
-  left: 74%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border: 1px solid rgba(216, 169, 79, 0.25);
-  border-radius: 50%;
-  pointer-events: none;
-}
+      content: "";
+      position: absolute;
+      width: 390px;
+      height: 390px;
+      left: 74%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px solid rgba(216, 169, 79, 0.25);
+      border-radius: 50%;
+      pointer-events: none;
+    }
 
     .hero-contenido {
       position: relative;
@@ -197,6 +225,13 @@
       font-size: 20px !important;
     }
 
+    .hero-acciones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
     .hero-imagen {
       position: relative;
       z-index: 1;
@@ -215,7 +250,7 @@
       filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.25));
     }
 
-    /* PROPUESTA DE VALOR */
+    /* SECCIONES */
 
     .seccion {
       padding: 75px 8%;
@@ -241,6 +276,8 @@
       font-size: 16px;
       line-height: 1.8;
     }
+
+    /* FUNCIONES */
 
     .habilidades {
       display: grid;
@@ -289,11 +326,105 @@
       line-height: 1.7;
     }
 
-    /* LLAMADO A LA ACCIÓN */
+    /* PAQUETES */
+
+    .paquetes {
+      background: #eef3f6;
+    }
+
+    .paquetes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 22px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .paquete {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 32px 26px;
+      border: 1px solid #dce4e9;
+      border-radius: 20px;
+      background: var(--blanco);
+      box-shadow: 0 8px 25px rgba(16, 36, 59, 0.05);
+    }
+
+    .paquete-destacado {
+      border: 2px solid var(--dorado);
+      box-shadow: var(--sombra);
+    }
+
+    .paquete-etiqueta {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 6px 11px;
+      border-radius: 20px;
+      background: #eaf2f6;
+      color: var(--azul-profundo);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .paquete h3 {
+      margin: 0 0 12px;
+      color: var(--azul-marino);
+      font-family: Georgia, serif;
+      font-size: 28px;
+      font-weight: normal;
+    }
+
+    .paquete p {
+      margin: 0 0 24px;
+      color: #647385;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .paquete .boton-paquete {
+      width: 100%;
+      margin-top: auto;
+      padding: 13px 18px;
+      border: 1px solid var(--azul-marino);
+      border-radius: 30px;
+      background: var(--azul-marino);
+      color: var(--blanco);
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .paquete .boton-paquete:hover {
+      background: var(--azul-profundo);
+      transform: translateY(-2px);
+    }
+
+    .paquete-destacado .boton-paquete {
+      border-color: var(--dorado);
+      background: var(--dorado);
+      color: var(--azul-marino);
+    }
+
+    .paquete-destacado .boton-paquete:hover {
+      background: #edc46f;
+    }
+
+    .paquetes-nota {
+      max-width: 700px;
+      margin: 30px auto 0;
+      color: #647385;
+      font-size: 13px;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* INVITACIÓN */
 
     .invitacion {
       padding: 65px 8%;
-      background: #eaf2f6;
+      background: var(--crema);
       text-align: center;
     }
 
@@ -324,70 +455,86 @@
       transition: transform 0.2s, background 0.2s;
     }
 
-    .boton-principal:hover {
-      background: #edc46f;
-      transform: translateY(-2px);
-    }
-
-    /* APLICACIÓN */
+    /* ZONA DE APLICACIÓN Y REGISTRO */
 
     #zonaAplicacion {
-  display: none;
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100vh;
-  height: 100dvh;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-  background: #ffffff;
-  z-index: 9999;
-}
+      display: none;
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+      background: var(--blanco);
+      z-index: 9999;
+    }
 
     .aplicacion-barra {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 15px;
-      max-width: 1400px;
-      margin: 0 auto 15px;
+      gap: 12px;
+      min-height: 58px;
+      padding: 8px 16px;
+      background: var(--azul-marino);
+      color: var(--blanco);
+      border-bottom: 2px solid var(--dorado);
     }
 
     .aplicacion-barra strong {
-      color: var(--azul-marino);
+      font-family: Georgia, serif;
+      font-size: 18px;
+      font-weight: normal;
     }
 
     .boton-regresar {
+      flex-shrink: 0;
       padding: 10px 16px;
-      border: 1px solid #cbd5df;
-      border-radius: 20px;
-      background: var(--blanco);
+      border: 1px solid var(--dorado);
+      border-radius: 22px;
+      background: var(--dorado);
       color: var(--azul-marino);
+      font-size: 14px;
+      font-weight: 700;
       cursor: pointer;
     }
 
-    #aplicacion {
-  display: block;
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  margin: 0;
-  padding: 0;
-  border: none;
-  border-radius: 0;
-  background: #ffffff;
-  box-shadow: none;
-}
+    .marco-aplicacion {
+      position: absolute;
+      top: 58px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .marco-aplicacion iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      border: none;
+      background: var(--blanco);
+    }
 
     #mensajeCarga {
-  display: none;
-  padding: 18px;
-  color: var(--azul-profundo);
-  text-align: center;
-}
+      position: absolute;
+      z-index: 1;
+      top: 58px;
+      right: 0;
+      left: 0;
+      padding: 18px;
+      background: var(--blanco);
+      color: var(--azul-profundo);
+      text-align: center;
+    }
 
     /* PIE DE PÁGINA */
 
@@ -426,6 +573,14 @@
       .seccion {
         padding: 60px 6%;
       }
+
+      .paquetes-grid {
+        gap: 14px;
+      }
+
+      .paquete {
+        padding: 25px 18px;
+      }
     }
 
     /* CELULAR */
@@ -454,6 +609,10 @@
         letter-spacing: 3px;
       }
 
+      .acciones-encabezado {
+        gap: 0;
+      }
+
       .boton-acceso {
         padding: 10px 13px;
         font-size: 12px;
@@ -463,7 +622,7 @@
       .hero {
         grid-template-columns: 1fr;
         gap: 20px;
-        padding: 45px 7% 35px;
+        padding: 35px 7% 45px;
         text-align: center;
       }
 
@@ -504,6 +663,17 @@
         transform: translate(-50%, -50%);
       }
 
+      .hero-acciones {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-acciones button,
+      .hero-acciones a {
+        width: 100%;
+        text-align: center;
+      }
+
       .seccion {
         padding: 50px 5%;
       }
@@ -521,42 +691,31 @@
         padding: 24px 20px;
       }
 
+      .paquetes-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .paquete {
+        padding: 28px 23px;
+      }
+
       .invitacion {
         padding: 50px 6%;
       }
 
-      #zonaAplicacion {
-  display: none;
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100vh;
-  height: 100dvh;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-  background: #ffffff;
-  z-index: 9999;
-}
-
       .aplicacion-barra {
-        align-items: flex-start;
+        padding: 8px 10px;
       }
 
-      #aplicacion {
-  display: block;
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  margin: 0;
-  padding: 0;
-  border: none;
-  border-radius: 0;
-  background: #ffffff;
-  box-shadow: none;
-}
+      .aplicacion-barra strong {
+        font-size: 16px;
+      }
+
+      .boton-regresar {
+        padding: 9px 12px;
+        font-size: 12px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -569,27 +728,13 @@
     }
   </style>
 </head>
-<script>
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("/hosanna-schola/sw.js")
-        .then((registro) => {
-          console.log("Hosanna PWA registrada:", registro.scope);
-        })
-        .catch((error) => {
-          console.error("Error al registrar Hosanna PWA:", error);
-        });
-    });
-  }
-</script>
+
 <body>
 
   <!-- ENCABEZADO -->
   <header id="encabezado">
     <div class="marca">
-      <!-- Sustituye esta URL por la de tu logotipo si tienes una versión independiente -->
       <img
-        
         src="https://i.ibb.co/C5QyQB27/Whats-App-Image-2026-10-15-at-12-22-42-removebg-preview.png"
         alt="Logotipo de Hosanna Schola"
       >
@@ -600,17 +745,18 @@
       </div>
     </div>
 
-    <button class="boton-acceso" onclick="abrirHosanna()">
-      Ingresar a Hosanna
-    </button>
+    <div class="acciones-encabezado">
+      <button class="boton-acceso" onclick="abrirHosanna()">
+        Ingresar
+      </button>
+    </div>
   </header>
 
-
-  <!-- BIENVENIDA -->
+  <!-- CONTENIDO PRINCIPAL -->
   <main id="contenidoPrincipal">
 
+    <!-- BIENVENIDA -->
     <section class="hero">
-
       <div class="hero-contenido">
 
         <span class="etiqueta">
@@ -635,28 +781,28 @@
           Disruptivos para trascender.
         </p>
 
-        <button class="boton-principal" onclick="abrirHosanna()">
-          Entrar a mi espacio musical
-        </button>
+        <div class="hero-acciones">
+          <button class="boton-principal" onclick="abrirHosanna()">
+            Entrar a mi espacio musical
+          </button>
+
+          <a class="boton-secundario" href="#paquetes">
+            Conocer los paquetes
+          </a>
+        </div>
 
       </div>
 
       <div class="hero-imagen">
-
-        <!-- Aquí colocaremos la ilustración de la mascota -->
         <img
           src="https://i.ibb.co/hR8LRqfZ/Gemini-Generated-Image-aou7caou7caou7ca-removebg-preview.png"
-          alt="Hosanna Schola"
+          alt="Personaje de Hosanna Schola"
         >
-
       </div>
-
     </section>
 
-
-    <!-- HABILIDADES -->
+    <!-- FUNCIONES -->
     <section class="seccion">
-
       <div class="seccion-encabezado">
         <h2>Todo lo que nos une, en un solo lugar</h2>
 
@@ -705,13 +851,88 @@
         </article>
 
       </div>
+    </section>
+
+    <!-- PAQUETES -->
+    <section class="seccion paquetes" id="paquetes">
+
+      <div class="seccion-encabezado">
+        <h2>Encuentra tu espacio musical</h2>
+
+        <p>
+          Comienza a organizar tu música con Hosanna Schola
+          y elige la modalidad que mejor se adapte a tus necesidades.
+        </p>
+      </div>
+
+      <div class="paquetes-grid">
+
+        <article class="paquete">
+          <span class="paquete-etiqueta">Para comenzar</span>
+
+          <h3>Freemium</h3>
+
+          <p>
+            Explora Hosanna Schola y descubre cómo organizar
+            tu repertorio musical.
+          </p>
+
+          <button
+            class="boton-paquete"
+            onclick="abrirRegistro('Freemium')"
+          >
+            Registrarme gratis
+          </button>
+        </article>
+
+        <article class="paquete">
+          <span class="paquete-etiqueta">Uso individual</span>
+
+          <h3>Individual</h3>
+
+          <p>
+            Una opción para quienes desean organizar y preparar
+            su propio repertorio musical.
+          </p>
+
+          <button
+            class="boton-paquete"
+            onclick="abrirRegistro('Individual')"
+          >
+            Elegir Individual
+          </button>
+        </article>
+
+        <article class="paquete paquete-destacado">
+          <span class="paquete-etiqueta">Para tu comunidad</span>
+
+          <h3>Grupal</h3>
+
+          <p>
+            Una opción para organizar el repertorio y facilitar
+            la colaboración de los integrantes de un grupo.
+          </p>
+
+          <button
+            class="boton-paquete"
+            onclick="abrirRegistro('Grupal')"
+          >
+            Elegir Grupal
+          </button>
+        </article>
+
+      </div>
+
+      <p class="paquetes-nota">
+        Selecciona una opción para comenzar tu registro.
+        Las condiciones y características definitivas de cada paquete
+        se mostrarán conforme estén configuradas en el proceso de registro.
+      </p>
 
     </section>
 
-
     <!-- INVITACIÓN -->
     <section class="invitacion">
-
       <h2>La música nos une. Hosanna nos acompaña.</h2>
 
       <p>
@@ -719,32 +940,43 @@
         el don de la música con nuestra comunidad.
       </p>
 
-      <button class="boton-principal" onclick="abrirHosanna()">
-        Ingresar a Hosanna Schola
+      <button class="boton-principal" onclick="abrirRegistro()">
+        Crear mi cuenta
       </button>
-
     </section>
 
   </main>
 
+  <!-- ZONA COMPARTIDA PARA LA APLICACIÓN Y EL REGISTRO -->
+  <section id="zonaAplicacion" aria-label="Hosanna Schola">
 
-<!-- APLICACIÓN A PANTALLA COMPLETA -->
-<section id="zonaAplicacion">
+    <div class="aplicacion-barra">
+      <strong id="tituloVista">Hosanna Schola</strong>
 
-  <div id="mensajeCarga">
-    Cargando Hosanna Schola...
-  </div>
+      <button
+        class="boton-regresar"
+        type="button"
+        onclick="volverInicio()"
+      >
+        ← Volver al inicio
+      </button>
+    </div>
 
-  <iframe
-    id="aplicacion"
-    title="Aplicación Hosanna Schola"
-    allow="autoplay"
-    allowfullscreen
-    loading="eager"
-  ></iframe>
+    <div id="mensajeCarga" role="status" aria-live="polite">
+      Cargando Hosanna Schola...
+    </div>
 
-</section>
+    <div class="marco-aplicacion">
+      <iframe
+        id="aplicacion"
+        title="Aplicación Hosanna Schola"
+        allow="autoplay"
+        allowfullscreen
+        loading="eager"
+      ></iframe>
+    </div>
 
+  </section>
 
   <!-- PIE DE PÁGINA -->
   <footer>
@@ -753,29 +985,42 @@
     <p>Disruptivos para trascender.</p>
   </footer>
 
-
   <script>
-
     /*
-     * IMPORTANTE:
-     * Conserva aquí la URL de implementación de tu aplicación
-     * de Google Apps Script.
+     * URLS DE HOSANNA
      */
     const URL_HOSANNA =
       "https://script.google.com/macros/s/AKfycbyMakr3dQrsK7Nonl2-RrKqiftZdUEx_LPdQ947avqMnfp4mANfj4ha98PwVLHJ35mYqA/exec";
 
+    const URL_REGISTRO =
+      "https://script.google.com/macros/s/AKfycbyQjYYdDrtBiiZw6u3gJvi5w0HwNQK_kk4i_rzUgDzDYIPUkGQ-Bj2VzN61LxE1eZlg0g/exec";
 
+    /*
+     * ABRIR LA APLICACIÓN
+     */
     function abrirHosanna() {
+      abrirVista(URL_HOSANNA, "Hosanna Schola");
+    }
 
-              if (
-          !URL_HOSANNA ||
-          URL_HOSANNA.includes("PEGA_AQUI")
-        ) {
-          alert(
-            "Primero debes configurar la URL de tu aplicación Hosanna."
-          );
-          return;
-        }
+    /*
+     * ABRIR EL FORMULARIO DE REGISTRO
+     *
+     * El argumento paquete se conserva preparado para futuras
+     * mejoras. Por ahora no se envía como parámetro a Apps Script,
+     * porque primero debemos confirmar que el formulario lo recibe.
+     */
+    function abrirRegistro(paquete) {
+      abrirVista(URL_REGISTRO, "Registro de Hosanna Schola");
+    }
+
+    /*
+     * MOSTRAR UNA VISTA DENTRO DEL IFRAME COMPARTIDO
+     */
+    function abrirVista(url, titulo) {
+      if (!url || !url.startsWith("https://")) {
+        alert("La dirección de esta sección no es válida.");
+        return;
+      }
 
       const principal =
         document.getElementById("contenidoPrincipal");
@@ -792,53 +1037,70 @@
       const carga =
         document.getElementById("mensajeCarga");
 
+      const tituloVista =
+        document.getElementById("tituloVista");
+
       principal.style.display = "none";
       encabezado.style.display = "none";
       zona.style.display = "block";
 
+      tituloVista.textContent = titulo;
       carga.style.display = "block";
+      carga.textContent = "Cargando " + titulo + "...";
 
       /*
-       * Cargamos la aplicación una sola vez.
-       * Esto evita reiniciar el iframe cada vez que
-       * el usuario regresa a la bienvenida.
+       * Evita recargar la misma vista si ya está abierta.
+       * Si cambia la URL, el iframe carga la nueva sección.
        */
-      if (!iframe.dataset.cargada) {
-
+      if (iframe.dataset.urlActual !== url) {
         iframe.onload = function() {
           carga.style.display = "none";
         };
 
-        iframe.src = URL_HOSANNA;
-        iframe.dataset.cargada = "true";
-
+        iframe.dataset.urlActual = url;
+        iframe.src = url;
       } else {
-
         carga.style.display = "none";
-
       }
 
       window.scrollTo(0, 0);
-
     }
 
-
+    /*
+     * REGRESAR A LA LANDING
+     */
     function volverInicio() {
+      document.getElementById("zonaAplicacion").style.display = "none";
 
-      document.getElementById("zonaAplicacion").style.display =
-        "none";
+      document.getElementById("contenidoPrincipal").style.display = "block";
 
-      document.getElementById("contenidoPrincipal").style.display =
-        "block";
-
-      document.getElementById("encabezado").style.display =
-        "flex";
+      document.getElementById("encabezado").style.display = "flex";
 
       window.scrollTo(0, 0);
-
     }
 
+    /*
+     * REGISTRO DE LA PWA
+     */
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function() {
+        navigator.serviceWorker.register("/hosanna-schola/sw.js")
+          .then(function(registro) {
+            console.log(
+              "Hosanna PWA registrada:",
+              registro.scope
+            );
+          })
+          .catch(function(error) {
+            console.error(
+              "Error al registrar Hosanna PWA:",
+              error
+            );
+          });
+      });
+    }
   </script>
 
 </body>
 </html>
+```
