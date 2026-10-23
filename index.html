@@ -1004,24 +1004,23 @@
 /*
  * RECIBIR CONFIRMACIÓN DE INICIO DE SESIÓN
  */
-window.addEventListener("message", function(event) {
 
-  if (event.origin !== "https://script.google.com") {
-    return;
-  }
+window.addEventListener("message", function(event) {
+  console.log("Mensaje recibido:", {
+    origen: event.origin,
+    datos: event.data,
+    ventanaOrigen: event.source === window
+  });
 
   if (!event.data || event.data.tipo !== "HOSANNA_LOGIN_OK") {
     return;
   }
 
-  // Cerrar la ventana emergente que inició la autenticación.
-  // El cierre se gestiona desde la ventana emergente si es posible.
-  // Recargar Hosanna dentro del landing.
+  alert("¡GitHub recibió la señal de inicio de sesión!");
+
   const iframe = document.getElementById("aplicacion");
   iframe.dataset.urlActual = "";
-
   abrirHosanna();
-
 });
 
 
