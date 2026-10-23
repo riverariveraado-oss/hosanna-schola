@@ -1001,28 +1001,6 @@
     }
 
 
-
-/*
- * RECIBIR CONFIRMACIÓN DE INICIO DE SESIÓN
- */
-window.addEventListener("message", function(event) {
-  console.log("Mensaje recibido:", {
-    origen: event.origin,
-    datos: event.data
-  });
-
-  if (!event.data || event.data.tipo !== "HOSANNA_LOGIN_OK") {
-    return;
-  }
-
-  console.log("Confirmación de inicio de sesión recibida.");
-
-  const iframe = document.getElementById("aplicacion");
-  iframe.dataset.urlActual = "";
-  abrirHosanna();
-});
-
-
     /*
      * REGISTRO DE LA PWA
      */
